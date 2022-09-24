@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
-import { Ingest } from './ingest';
-import { Search } from './search';
 import { SearchController } from './search/search.controller';
+import { TrieService } from './search/trie/trie.service';
+import { IngestService } from './search/ingest/ingest.service';
 
 @Module({
-  providers: [Ingest, Search],
+  providers: [TrieService, IngestService],
   controllers: [SearchController]
 })
 export class DictionaryModule {}
