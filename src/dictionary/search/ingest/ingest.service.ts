@@ -23,7 +23,6 @@ export class IngestService implements OnModuleInit {
         const files = readdirSync(dataDir);
         for (const file of files) {
             try {
-                this.logger.log(`Parsing words from ${file}`);
                 const data = await fs.readFile(`${dataDir}/${file}`, { encoding: 'utf8' });
                 const dom = new JSDOM(data);
                 const pees: NodeList = dom.window.document.querySelectorAll("p")
@@ -43,7 +42,7 @@ export class IngestService implements OnModuleInit {
                         name: word, kind, description
                     })
                 }
-                this.logger.log(`Parsed ${numWordsInFile} words`);
+                this.logger.log(`Parsed ${numWordsInFile} words from ${file}`);
             } catch (err) {
                 console.log(err);
             }
