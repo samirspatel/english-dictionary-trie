@@ -5,6 +5,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   // Starts listening for shutdown hooks
   app.enableShutdownHooks();
+  app.use(require('express-status-monitor')());
   await app.listen(3000);
 }
 bootstrap();

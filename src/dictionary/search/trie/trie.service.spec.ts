@@ -15,4 +15,8 @@ describe('TrieService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
+  it('should add the correct number of letters', () => {
+    expect(service).toBeDefined();
+  });
 });
