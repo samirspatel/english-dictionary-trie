@@ -66,7 +66,7 @@ export class IngestService implements OnModuleInit {
 
     // @todo: Implement trie
     private insertWordInTrie(word: Word) {
-        this.trie.addWord(word.name);
+        this.trie.addWord(word.name, word.description);
         this.words.push(word)
     }
 

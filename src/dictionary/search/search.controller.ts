@@ -16,7 +16,13 @@ export class SearchController {
         // console.log(this.trie.children['a']);
         const word = params.word;
         const isWord = this.trie.search(word);
-        // return this.ingest.getWords();
-        return { isWord, word };
+        
+        return { isWord, word, desc: this.trie.getCurrDesc() };
+    }
+
+    @Get('/trie')
+    tries() {
+        const words = this.trie;
+        return JSON.stringify(words);
     }
 }
